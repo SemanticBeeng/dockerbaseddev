@@ -3,4 +3,4 @@
 shift
 
 echo "Running in container, PWD=$(pwd)"	1>&2
-ghc $@
+exec ghc $@
