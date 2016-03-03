@@ -1,0 +1,7 @@
+#!/bin/bash
+PARENT_COMMAND="$(ps -o comm= $PPID)"
+if [ "$PARENT_COMMAND" == "java" ]; then 
+	exec docker exec haskell cabal-wrapper $(pwd) $@
+else
+	exec docker exec -i haskell cabal-wrapper $(pwd) $@
+fi

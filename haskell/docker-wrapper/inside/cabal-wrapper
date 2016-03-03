@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+[ -d $1 ] && cd $1
+shift
+if [ "$1" == "--numeric-version" ]; then
+	cabal $@
+else
+	echo "Running in container, PWD=$(pwd)"	1>&2
+	set -vx
+	cabal ${@:1:$#-1}
+fi

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+[ -d $1 ] && cd $1
+shift
+
+echo "Running in container, PWD=$(pwd)"	1>&2
+ghc $@
